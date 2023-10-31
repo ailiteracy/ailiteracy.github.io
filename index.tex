@@ -1,0 +1,787 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrreprt}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{longtable}
+\usepackage{colortbl}
+\usepackage{array}
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Working with OpenAI Models},
+  pdfauthor={Animesh Devarshi},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Working with OpenAI Models}
+\author{Animesh Devarshi}
+\date{2023-10-10}
+
+\begin{document}
+\maketitle
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, breakable, enhanced, sharp corners, interior hidden, borderline west={3pt}{0pt}{shadecolor}, frame hidden]}{\end{tcolorbox}}\fi
+
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\bookmarksetup{startatroot}
+
+\hypertarget{preface}{%
+\chapter*{Preface}\label{preface}}
+\addcontentsline{toc}{chapter}{Preface}
+
+\markboth{Preface}{Preface}
+
+This is a Quarto book.
+
+To learn more about Quarto books visit
+\url{https://quarto.org/docs/books}.
+
+\bookmarksetup{startatroot}
+
+\hypertarget{introduction}{%
+\chapter{Introduction}\label{introduction}}
+
+A comprehensive resource for Python programmers, providing in-depth
+knowledge and practical skills to harness the power of OpenAI and apply
+it in real-world scenarios.
+
+This is a book created to explain how can you start working on Open AI
+models using Python.
+
+\bookmarksetup{startatroot}
+
+\hypertarget{chapter-1}{%
+\chapter{Chapter 1}\label{chapter-1}}
+
+In this chapter, we will introduce you to the basics of using OpenAI
+models in Python.
+
+We will start by installing the necessary Python libraries and creating
+an OpenAI API key. Then, we will show you how to perform some basic
+tasks with OpenAI models, such as:
+
+\begin{itemize}
+\item
+  Text summarization
+\item
+  Output in a given format
+\item
+  Translation
+\item
+  Code generation
+\end{itemize}
+
+We will also provide some tips for best practices when using OpenAI
+models.
+
+\hypertarget{getting-started}{%
+\section{Getting started}\label{getting-started}}
+
+To get started with OpenAI models in Python, you will need to install
+the openai library.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{!}\NormalTok{pip install openai}
+\end{Highlighting}
+\end{Shaded}
+
+After you have installed, you will also need to create an OpenAI API key
+by signing up for opena an OpenAI account. You can use this
+\href{https://platform.openai.com/}{link} to sign up for OpenAI account.
+Once you sign up you will get a free credit of \$5 which you need to
+consume in three months. You can create secret API key by going to
+\href{https://platform.openai.com/account/api-keys}{API key page} on
+OpenAI platform.
+
+Once you have installed the necessary libraries and created an API key,
+you have to load the libraries and OpenAI key. You can either hardcode
+the API Key or you can use an environment variable to store this.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ openai}
+\ImportTok{import}\NormalTok{ os}
+
+\CommentTok{\# A sample value for illustration which will not work :)}
+\CommentTok{\# openai.api\_key  = "sk{-}vuZEBvfa0UUAiGmYJPkqT3vvvvvJNhaT2TGHrJA6MdLHCxud" }
+
+\NormalTok{openai.api\_key  }\OperatorTok{=}\NormalTok{ os.getenv(}\StringTok{\textquotesingle{}OPENAI\_API\_KEY\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+After you have Python configured and set up API key, the next step is to
+send request to OpenAI model using API. I have a created a helper
+function for simplicity.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{def}\NormalTok{ get\_completion(prompt ):}
+\NormalTok{    messages }\OperatorTok{=}\NormalTok{ [\{}\StringTok{"role"}\NormalTok{: }\StringTok{"user"}\NormalTok{, }\StringTok{"content"}\NormalTok{: prompt\}]}
+\NormalTok{    response }\OperatorTok{=}\NormalTok{ openai.ChatCompletion.create(}
+\NormalTok{        model}\OperatorTok{=}\StringTok{"gpt{-}3.5{-}turbo"}\NormalTok{,}
+\NormalTok{        messages}\OperatorTok{=}\NormalTok{messages,}
+\NormalTok{        temperature}\OperatorTok{=}\FloatTok{0.1}\NormalTok{, }\CommentTok{\# this is the degree of randomness of the model\textquotesingle{}s output}
+\NormalTok{    )}
+    \ControlFlowTok{return}\NormalTok{ response.choices[}\DecValTok{0}\NormalTok{].message[}\StringTok{"content"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+This function takes a prompt (text) as input and return the response
+from OpenAI as output. You can test this function using any simple
+prompt.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{prompt }\OperatorTok{=} \StringTok{"When Indian constitution was adopted?"}
+
+\NormalTok{output }\OperatorTok{=}\NormalTok{ get\_completion(prompt)}
+\BuiltInTok{print}\NormalTok{(output)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, breakable, opacityback=0, bottomrule=.15mm, left=2mm, leftrule=.75mm, toptitle=1mm, colbacktitle=quarto-callout-note-color!10!white, toprule=.15mm, rightrule=.15mm, colback=white, titlerule=0mm, colframe=quarto-callout-note-color-frame, title={Output}, arc=.35mm, opacitybacktitle=0.6, bottomtitle=1mm]
+
+\begin{verbatim}
+The Indian constitution was adopted on November 26, 1949.
+\end{verbatim}
+
+\end{tcolorbox}
+
+When you execute this, API calls goes to OpenAI with your query and
+OpenAI returns the output as text.
+
+\hypertarget{example-1-text-summarization}{%
+\section{Example 1 Text
+summarization}\label{example-1-text-summarization}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{text }\OperatorTok{=} \StringTok{"""}
+\StringTok{Consuming a healthy diet throughout the life{-}course helps to prevent malnutrition in all its forms as well as a range of noncommunicable diseases (NCDs) and conditions. However, increased production of processed foods, rapid urbanization and changing lifestyles have led to a shift in dietary patterns. People are now consuming more foods high in energy, fats, free sugars and salt/sodium, and many people do not eat enough fruit, vegetables and other dietary fibre such as whole grains.}
+
+\StringTok{The exact make{-}up of a diversified, balanced and healthy diet will vary depending on individual characteristics (e.g. age, gender, lifestyle and degree of physical activity), cultural context, locally available foods and dietary customs. However, the basic principles of what constitutes a healthy diet remain the same.}
+
+\StringTok{For adults}
+\StringTok{A healthy diet includes the following:}
+
+\StringTok{Fruit, vegetables, legumes (e.g. lentils and beans), nuts and whole grains (e.g. unprocessed maize, millet, oats, wheat and brown rice).}
+\StringTok{At least 400 g (i.e. five portions) of fruit and vegetables per day (2), excluding potatoes, sweet potatoes, cassava and other starchy roots.}
+\StringTok{Less than 10}\SpecialCharTok{\% o}\StringTok{f total energy intake from free sugars (2, 7), which is equivalent to 50 g (or about 12 level teaspoons) for a person of healthy body weight consuming about 2000 calories per day, but ideally is less than 5}\SpecialCharTok{\% o}\StringTok{f total energy intake for additional health benefits (7). Free sugars are all sugars added to foods or drinks by the manufacturer, cook or consumer, as well as sugars naturally present in honey, syrups, fruit juices and fruit juice concentrates.}
+\StringTok{Less than 30}\SpecialCharTok{\% o}\StringTok{f total energy intake from fats (1, 2, 3). Unsaturated fats (found in fish, avocado and nuts, and in sunflower, soybean, canola and olive oils) are preferable to saturated fats (found in fatty meat, butter, palm and coconut oil, cream, cheese, ghee and lard) and trans{-}fats of all kinds, including both industrially{-}produced trans{-}fats (found in baked and fried foods, and pre{-}packaged snacks and foods, such as frozen pizza, pies, cookies, biscuits, wafers, and cooking oils and spreads) and ruminant trans{-}fats (found in meat and dairy foods from ruminant animals, such as cows, sheep, goats and camels). It is suggested that the intake of saturated fats be reduced to less than 10}\SpecialCharTok{\% o}\StringTok{f total energy intake and trans{-}fats to less than 1}\SpecialCharTok{\% o}\StringTok{f total energy intake (5). In particular, industrially{-}produced trans{-}fats are not part of a healthy diet and should be avoided (4, 6).}
+\StringTok{Less than 5  g of salt (equivalent to about one teaspoon) per day (8).  Salt should be iodized.}
+\StringTok{For infants and young children}
+\StringTok{In the first 2 years of a child’s life, optimal nutrition fosters healthy growth and improves cognitive development. It also reduces the risk of becoming overweight or obese and developing NCDs later in life.}
+
+\StringTok{Advice on a healthy diet for infants and children is similar to that for adults, but the following elements are also important:}
+
+\StringTok{Infants should be breastfed exclusively during the first 6 months of life.}
+\StringTok{Infants should be breastfed continuously until 2 years of age and beyond.}
+\StringTok{From 6 months of age, breast milk should be complemented with a variety of adequate, safe and nutrient{-}dense foods. Salt and sugars should not be added to complementary foods.}
+\StringTok{Practical advice on maintaining a healthy diet}
+\StringTok{Fruit and vegetables}
+\StringTok{Eating at least 400 g, or five portions, of fruit and vegetables per day reduces the risk of NCDs (2) and helps to ensure an adequate daily intake of dietary fibre.}
+
+\StringTok{Fruit and vegetable intake can be improved by:}
+
+\StringTok{always including vegetables in meals;}
+\StringTok{eating fresh fruit and raw vegetables as snacks;}
+\StringTok{eating fresh fruit and vegetables that are in season; and}
+\StringTok{eating a variety of fruit and vegetables.}
+\StringTok{Fats}
+\StringTok{Reducing the amount of total fat intake to less than 30}\SpecialCharTok{\% o}\StringTok{f total energy intake helps to prevent unhealthy weight gain in the adult population (1, 2, 3). Also, the risk of developing NCDs is lowered by:}
+
+\StringTok{reducing saturated fats to less than 10}\SpecialCharTok{\% o}\StringTok{f total energy intake;}
+\StringTok{reducing trans{-}fats to less than 1}\SpecialCharTok{\% o}\StringTok{f total energy intake; and}
+\StringTok{replacing both saturated fats and trans{-}fats with unsaturated fats (2, 3) – in particular, with polyunsaturated fats.}
+\StringTok{Fat intake, especially saturated fat and industrially{-}produced trans{-}fat intake, can be reduced by:}
+
+\StringTok{steaming or boiling instead of frying when cooking;}
+\StringTok{replacing butter, lard and ghee with oils rich in polyunsaturated fats, such as soybean, canola (rapeseed), corn, safflower and sunflower oils;}
+\StringTok{eating reduced{-}fat dairy foods and lean meats, or trimming visible fat from meat; and}
+\StringTok{limiting the consumption of baked and fried foods, and pre{-}packaged snacks and foods (e.g. doughnuts, cakes, pies, cookies, biscuits and wafers) that contain industrially{-}produced trans{-}fats.}
+\StringTok{Salt, sodium and potassium}
+\StringTok{Most people consume too much sodium through salt (corresponding to consuming an average of 9–12 g of salt per day) and not enough potassium (less than 3.5 g). High sodium intake and insufficient potassium intake contribute to high blood pressure, which in turn increases the risk of heart disease and stroke (8, 11).}
+
+\StringTok{Reducing salt intake to the recommended level of less than 5 g per day could prevent 1.7 million deaths each year (12).}
+
+\StringTok{People are often unaware of the amount of salt they consume. In many countries, most salt  comes from processed foods (e.g. ready meals; processed meats such as bacon, ham and salami; cheese; and salty snacks) or from foods consumed frequently in large amounts (e.g. bread). Salt is also added to foods during cooking (e.g. bouillon, stock cubes, soy sauce and fish sauce) or at the point of consumption (e.g. table salt).}
+
+\StringTok{Salt intake can be reduced by:}
+
+\StringTok{limiting the amount of salt and high{-}sodium condiments (e.g. soy sauce, fish sauce and bouillon) when cooking and preparing foods;}
+\StringTok{not having salt or high{-}sodium sauces on the table;}
+\StringTok{limiting the consumption of salty snacks; and}
+\StringTok{choosing products with lower sodium content.}
+\StringTok{Some food manufacturers are reformulating recipes to reduce the sodium content of their products, and people should be encouraged to check nutrition labels to see how much sodium is in a product before purchasing or consuming it.}
+
+\StringTok{Potassium can mitigate the negative effects of elevated sodium consumption on blood pressure. Intake of potassium can be increased by consuming fresh fruit and vegetables.}
+
+\StringTok{Sugars}
+\StringTok{In both adults and children, the intake of free sugars should be reduced to less than 10}\SpecialCharTok{\% o}\StringTok{f total energy intake (2, 7).  A reduction to less than 5}\SpecialCharTok{\% o}\StringTok{f total energy intake would provide additional health benefits (7).}
+
+\StringTok{Consuming free sugars increases the risk of dental caries (tooth decay). Excess calories from foods and drinks high in free sugars also contribute to unhealthy weight gain, which can lead to overweight and obesity. Recent evidence also shows that free sugars influence blood pressure and serum lipids, and suggests that a reduction in free sugars intake reduces risk factors for cardiovascular diseases (13).}
+
+\StringTok{Sugars intake can be reduced by:}
+
+\StringTok{limiting the consumption of foods and drinks containing high amounts of sugars, such as sugary snacks, candies and sugar{-}sweetened beverages (i.e. all types of beverages containing free sugars – these include carbonated or non‐carbonated soft drinks, fruit or vegetable juices and drinks, liquid and powder concentrates, flavoured water, energy and sports drinks, ready‐to‐drink tea, ready‐to‐drink coffee and flavoured milk drinks); and}
+\StringTok{eating fresh fruit and raw vegetables as snacks instead of sugary snacks.}
+\StringTok{"""}
+\end{Highlighting}
+\end{Shaded}
+
+Some text
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{prompt }\OperatorTok{=} \SpecialStringTok{f"""}
+\SpecialStringTok{Summarize the text delimited by triple backticks \textbackslash{} }
+\SpecialStringTok{into one paragraph.}
+\SpecialStringTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}\SpecialCharTok{\{}\NormalTok{text}\SpecialCharTok{\}}\SpecialStringTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
+\SpecialStringTok{"""}
+\NormalTok{response }\OperatorTok{=}\NormalTok{ get\_completion(prompt)}
+\BuiltInTok{print}\NormalTok{(response)}
+\end{Highlighting}
+\end{Shaded}
+
+Consuming a healthy diet is important for preventing malnutrition and
+noncommunicable diseases. However, dietary patterns have shifted due to
+increased production of processed foods and changing lifestyles. People
+are now consuming more high-energy, fatty, sugary, and salty foods,
+while not eating enough fruits, vegetables, and whole grains. The
+composition of a healthy diet varies based on individual
+characteristics, cultural context, and locally available foods. For
+adults, a healthy diet includes fruits, vegetables, legumes, nuts, and
+whole grains. It should also limit the intake of sugars and fats,
+particularly saturated and trans fats. Salt intake should be limited to
+less than 5g per day. For infants and young children, breastfeeding is
+recommended for the first 6 months and should be continued until 2 years
+of age. From 6 months, breast milk should be supplemented with
+nutrient-dense foods without added salt or sugars. Practical advice for
+maintaining a healthy diet includes eating a variety of fruits and
+vegetables, reducing fat intake, and limiting salt and sugar
+consumption.
+
+\hypertarget{example-2---extracting-info-from-text-in-json-format}{%
+\section{Example 2 - Extracting info from text in JSON
+format}\label{example-2---extracting-info-from-text-in-json-format}}
+
+Here is another example where, we will see how to extract meaningful
+information from text in a json format.
+
+The text is copied from from the press release of a motor company which
+is in the pdf format.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{text\_car\_sales }\OperatorTok{=} \StringTok{"""}
+\StringTok{Tata Motors Consolidated:}
+\StringTok{TML continued its strong performance in Q1 FY24 with Revenues at ₹102.2K Cr (up 42\% yoy), EBITDA at ₹14.7K Cr (up}
+\StringTok{177\% yoy) and EBIT of ₹8.3KCr (higher by ₹8.8KCr), all showing a sharp improvement driven by JLR and CV businesses}
+\StringTok{whilst the PV business was steady. JLR revenues improved by 57\% to £6.9b on strong wholesales and improved mix}
+\StringTok{resulting in EBIT margins of 8.6\% (+1,300bps). CV volumes were lower by 15}\SpecialCharTok{\% o}\StringTok{ver prior year due to transition to BS6}
+\StringTok{Phase 2. However, the EBIT margins improved to 6.5\% (+370bps) benefiting from the demand{-}pull strategy and richer mix.}
+\StringTok{PV business was steady with 11.1}\SpecialCharTok{\% r}\StringTok{evenue growth and EBIT of 1.0\% (+10bps). Overall PBT (bei) improved by ₹10.3KCr to}
+\StringTok{₹5.3KCr and Net Profit was ₹3.3KCr.}
+\StringTok{Looking Ahead:}
+\StringTok{We remain optimistic on the demand situation despite near term uncertainties and expect a moderate inflationary}
+\StringTok{environment to continue in the near term. We aim to deliver a strong performance in the rest of the year too, thanks to}
+\StringTok{a healthy order book coupled with low{-}break{-}even in JLR, a steady improvement in demand whilst we continue to drive}
+\StringTok{our demand{-}pull strategy in CV, a set of exciting launches ahead of the festive season in PV and continued aggression in}
+\StringTok{EVs.}
+\StringTok{PB Balaji, Group Chief Financial Officer, Tata Motors said:}
+\StringTok{“FY24 has begun on the right note with all automotive verticals delivering strong performances. The distinct strategy}
+\StringTok{employed by each business is now delivering consistent results and making them structurally stronger. We remain}
+\StringTok{confident of sustaining this momentum in the rest of the year and achieve our stated goals.”}
+\StringTok{Q}
+\StringTok{1 FY2}
+\StringTok{4}
+\StringTok{Consolidated}
+\StringTok{(₹ Cr Ind AS)}
+\StringTok{Jaguar Land Rover}
+\StringTok{(£m, IFRS)}
+\StringTok{Tata Commercial}
+\StringTok{Vehicles (₹Cr, Ind AS)}
+\StringTok{Tata Passenger}
+\StringTok{Vehicles (₹Cr, Ind AS)}
+\StringTok{FY24 Vs. PY FY24 Vs. PY FY24 Vs. PY FY24 Vs. PY}
+\StringTok{Revenue 102,236 42.1 \% 6,903 57.0 \% 16,991 4.4\% 12,839 11.1 \%}
+\StringTok{EBITDA (\%) 14.4 700 bps 16.3 960 bps 9.4 390 bps 5.3 (80) bps}
+\StringTok{EBIT (\%) 8.1 880 bps 8.6 1,300 bps 6.5 370 bps 1.0 10 bps}
+\StringTok{PBT (bei) 5,330 ₹10,292crs 435 £959m 937 ₹635 crs 186 ₹172 crs}
+\StringTok{Tata Motors Group Results Q1 FY24 July 25, 2023}
+\StringTok{Page 2 of 5}
+\StringTok{Highlights}
+\StringTok{• Revenues in Q1 FY24 of £6.9 billion, up 57\% (y{-}o{-}y).}
+\StringTok{• PBT (bei) in Q1 FY24 was £435 million, up £67 million from Q4 FY23 and up nearly £1 billion from Q1 FY23.}
+\StringTok{• EBIT margin in the quarter was 8.6\%, up from 6.5}\SpecialCharTok{\% i}\StringTok{n Q4 FY23.}
+\StringTok{• The higher profitability year{-}on{-}year reflects favourable volume, mix, pricing and foreign exchange revaluation}
+\StringTok{offset partially by higher inflation and supplier claims.}
+\StringTok{• FCF of £451 million, the highest JLR Q1 cash flow on record; cumulative FCF over the last three quarters is £1.8}
+\StringTok{billion.}
+\StringTok{• Cash on hand increased to £4 billion and net debt reduced to £2.5 billion at June 30, 2023.}
+\StringTok{• Order book strong at 185k units with Range Rover, Range Rover Sport and Defender representing 76}\SpecialCharTok{\% o}\StringTok{f the order}
+\StringTok{book.}
+\StringTok{• Adrian Mardell and Richard Molyneux confirmed as Chief Executive Officer and Chief Financial Officer respectively.}
+\StringTok{• Tata’s newly announced £4bn UK gigafactory will provide JLR with stable and secure supply of battery cells to}
+\StringTok{electrify JLR’s next generation modern luxury vehicles.}
+\StringTok{Reimagine Transformation}
+\StringTok{• Our first Reimagined modern luxury electric vehicle to go on sale will be Range Rover BEV, available for pre{-}order}
+\StringTok{later this year and on sale in 2024.}
+\StringTok{• Range Rover Sport named the 2023 Auto Express Large Premium SUV of the year 2023.}
+\StringTok{• JLR’s Jaguar and Land Rover (Range Rover, Defender, Discovery) brands placed top of a J.D. Power US ‘Automotive}
+\StringTok{Performance, Execution and Layout (APEAL)’ based on client perceptions of design, performance, safety, comfort}
+\StringTok{and quality.}
+\StringTok{• Model year refreshes of Discovery Sport and Range Rover Evoque with significant interior upgrades. Outbound}
+\StringTok{Edition of Defender 130 launched.}
+\StringTok{• Limited edition New Range Rover Sport SV EDITION ONE, with pricing ranging from £168,800 to more than}
+\StringTok{£190,000 in the UK, was fully reserved ahead of its launch in May, following exclusive Range Rover House preview}
+\StringTok{events.}
+\StringTok{• Digital transformation continues with Tata Technologies to support Enterprise Risk Management (ERM) across the}
+\StringTok{business and with Everstream to use AI to monitor our global supply chains.}
+
+\StringTok{"""}
+\end{Highlighting}
+\end{Shaded}
+
+Now, the code to call this function, we'll use
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{prompt }\OperatorTok{=} \SpecialStringTok{f"""}
+\SpecialStringTok{Extract the numbers with their key from the below text delimited by triple backticks.}
+\SpecialStringTok{Use JSON format to show your result.}
+
+\SpecialStringTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}\SpecialCharTok{\{}\NormalTok{text\_car\_sales}\SpecialCharTok{\}}\SpecialStringTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
+\SpecialStringTok{"""}
+\NormalTok{response }\OperatorTok{=}\NormalTok{ get\_completion(prompt)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=4.16667in,height=\textheight]{CH1_JSON_String_1.png}
+
+The OpenAI model has returned the output in a json string format. We can
+play with this string and create a json object . In the last we can
+create a data frame using the json object.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ json}
+\NormalTok{parse\_response }\OperatorTok{=}\NormalTok{ json.loads(response)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ pandas }\ImportTok{as}\NormalTok{ pd}
+\NormalTok{pd.DataFrame(parse\_response).T}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule\noalign{}
+& Tata Motors Consolidated & Jaguar Land Rover & Tata Commercial
+Vehicles & Tata Passenger Vehicles \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Revenues & ₹102.2K Cr & £6.9b & ₹16,991 Cr & ₹12,839 Cr \\
+EBITDA & ₹14.7K Cr & 16.3 & 9.4 & 5.3 \\
+EBIT & ₹8.3KCr & 8.6 & 6.5 & 1.0 \\
+PBT (bei) & ₹5.3KCr & 435 & 937 & 186 \\
+\end{longtable}
+
+\hypertarget{summary}{%
+\subsection{Summary}\label{summary}}
+
+In this chapter, we saw how to start working with OpenAI GPT models
+using API. In the next chapter we'll see how to work with system prompt.
+
+\bookmarksetup{startatroot}
+
+\hypertarget{chapter-2}{%
+\chapter{Chapter 2}\label{chapter-2}}
+
+In this chapter, we will see the
+
+\begin{itemize}
+\item
+  structure of helper function and
+\item
+  output of openai.ChatCompletion
+\end{itemize}
+
+\hypertarget{structure-of-helper-function}{%
+\section{Structure of helper
+function}\label{structure-of-helper-function}}
+
+In the last chapter, we have used a pre-defined helper function to send
+request to OpenAI and get response.
+
+\includegraphics{1_open_ai_helper_function.drawio.png}
+
+\begin{verbatim}
+Warning: package 'gt' was built under R version 4.3.1
+\end{verbatim}
+
+\begin{longtable*}{ll}
+\caption*{
+{\large \textbf{Explanation of helper function}}
+} \\ 
+\toprule
+Element & Description \\ 
+\midrule\addlinespace[2.5pt]
+prompt & User query send to OpenAI \\ 
+messages & When a user sends a query in plain text,  It has to be converted into list format which is understood by OpenAI. Every prompt has to be converted in this format \\ 
+ChatCompletion Function & Function which is used to communicate to OpenAI \\ 
+model & The name of model which a developer wants to interact It can be gpt 3.5 turbo, gpt 4 etc \\ 
+temperature & Temperature sets the randomness of the response. It is set to 0, the model is too deterministic and accurate. Use this option when accuracy is priority for e.g. code generation \\ 
+response & Model returns output as response object which  contains list of choices. \\ 
+\bottomrule
+\end{longtable*}
+
+\hypertarget{understanding-the-response-object}{%
+\section{Understanding the response
+object}\label{understanding-the-response-object}}
+
+In the previous, section we saw the elements of helper function. When we
+call OpenAI ChatCompletion, we get their response as response object.
+Lets see the components of response.
+
+We'll modify the helper function, where we'll see the response object
+directly to calling function.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Modified helper function}
+\KeywordTok{def}\NormalTok{ get\_completion(prompt):}
+\NormalTok{    messages }\OperatorTok{=}\NormalTok{ [\{}\StringTok{"role"}\NormalTok{: }\StringTok{"user"}\NormalTok{, }\StringTok{"content"}\NormalTok{: prompt\}]}
+\NormalTok{    response }\OperatorTok{=}\NormalTok{ openai.ChatCompletion.create(}
+\NormalTok{        model}\OperatorTok{=}\StringTok{"gpt{-}3.5{-}turbo"}\NormalTok{,}
+\NormalTok{        messages}\OperatorTok{=}\NormalTok{messages,}
+\NormalTok{        temperature}\OperatorTok{=}\FloatTok{0.1}\NormalTok{, }
+\NormalTok{    )}
+    \ControlFlowTok{return}\NormalTok{ response}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{prompt }\OperatorTok{=} \StringTok{"Who discovered the laws of motion"}
+\NormalTok{response }\OperatorTok{=}\NormalTok{ get\_completion(prompt)}
+\BuiltInTok{print}\NormalTok{(response)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Output}:
+
+\includegraphics{images/ch2/2_response_object.png}
+
+As, you can see above, the output of OpenAI ChatCompletion is a json
+object. Few keys are self explanatory, we can skip those and understand
+others by breaking into small parts.
+
+\hypertarget{choices}{%
+\subsubsection{Choices}\label{choices}}
+
+ChatCompletion.create function from OpenAI returns a response object
+like above.. In order to understand better, we'll break it and see
+output step wise.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{response.choices}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Output}:
+
+\includegraphics{images/ch2/2_1_response_object.png}
+
+This command will extract the choices from response which is a list of
+JSON. This list has only elements with JSON format. It has three keys
+index, message and finish\_reason.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{response.choices[}\DecValTok{0}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{images/ch2/2_2_response_object.png}
+
+Since, response.choices is a list with one element, this statement below
+👇🏾 fetch the the first element from the list which is a json.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{response.choices[}\DecValTok{0}\NormalTok{].message}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Output}:
+
+\includegraphics{images/ch2/2_3_response_object.png}
+
+The \textbf{message} json has two elements, role and content which we
+generally use while bulding AI applications.
+
+Finally, we'll use this statement to fetch the response from OpenAI
+ChatCompletion.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{response.choices[}\DecValTok{0}\NormalTok{].message[}\StringTok{"content"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{get-usage-data}{%
+\subsubsection{Get Usage data}\label{get-usage-data}}
+
+Many times, there are requirement from business to keep track of total
+token usages. We can use the same response object to fetch token.
+
+If you see the content of response, 👇🏾👇🏾, it has another key usage.
+
+\includegraphics{images/ch2/2_response_object.png}
+
+We can extract usage using.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{response.usage}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{\textless{}}\NormalTok{OpenAIObject at }\BaseNTok{0x22ea8fcf950}\OperatorTok{\textgreater{}}\NormalTok{ JSON: \{}
+  \StringTok{"prompt\_tokens"}\NormalTok{: }\DecValTok{13}\NormalTok{,}
+  \StringTok{"completion\_tokens"}\NormalTok{: }\DecValTok{11}\NormalTok{,}
+  \StringTok{"total\_tokens"}\NormalTok{: }\DecValTok{24}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+It has three keys \textbf{prompt\_tokens}, \textbf{completion\_tokens},
+\textbf{total\_tokens.}
+
+To track the use of tokens, you can use
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{response.usage[}\StringTok{"total\_tokens"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{summary-1}{%
+\section{Summary}\label{summary-1}}
+
+In this chapter, we discussed the structure of helper function we
+created and OpenAI's ChatCompletion.
+
+
+
+\end{document}

@@ -1,0 +1,28 @@
+project:
+  type: book
+  output-dir: "docs/ailiteracy.github.io"
+book:
+  title: "Working with OpenAI Models"
+  editor:
+    markdown:
+      wrap: 72
+  author: "Animesh Devarshi"
+  date: "10/10/2023"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - 1_Chapter.qmd
+    - 2_chapter.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    number-sections: false
+    code-overflow: wrap
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+

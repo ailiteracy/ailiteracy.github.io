@@ -1,0 +1,5 @@
+# Introduction
+
+A comprehensive resource for Python programmers, providing in-depth knowledge and practical skills to harness the power of OpenAI and apply it in real-world scenarios.
+
+This is a book created to explain how can you start working on Open AI models using Python.

@@ -1,0 +1,151 @@
+# Chapter 2
+
+In this chapter, we will see the
+
+-   structure of helper function and
+
+-   output of openai.ChatCompletion
+
+## Structure of helper function
+
+In the last chapter, we have used a pre-defined helper function to send request to OpenAI and get response.
+
+![](1_open_ai_helper_function.drawio.png)
+
+```{r echo=FALSE}
+library(gt)
+# Make a display table with the `islands_tbl`
+# table; put a heading just above the column labels
+df <- data.frame(
+  Element = c("prompt", "messages", 
+              "ChatCompletion Function", "model", "temperature", 
+              "response"),
+  Description = c(paste("User query send to OpenAI"),
+                  paste("When a user sends a query in plain text, ",
+                        "It has to be converted into list format which is",
+                        "understood by OpenAI. Every prompt has to be converted",
+                        "in this format"),
+                  paste("Function which is used to communicate to OpenAI"),
+                  paste("The name of model which a developer wants to interact", 
+                        "It can be gpt 3.5 turbo, gpt 4 etc"),
+                  paste("Temperature sets the randomness of the response.",
+                        "It is set to 0, the model is too deterministic and",
+                        "accurate. Use this option when accuracy is priority",
+                        "for e.g. code generation"),
+                  paste("Model returns output as response object which",
+                        " contains list of choices.")
+  )
+)
+df %>% gt() -> gt_tbl
+gt_tbl <-
+  gt_tbl %>%
+  tab_header(
+    title = md("**Explanation of helper function**")
+   )|> 
+  tab_options(column_labels.background.color = "blue")
+
+# Show the gt Table
+gt_tbl
+```
+
+## Understanding the response object
+
+In the previous, section we saw the elements of helper function. When we call OpenAI ChatCompletion, we get their response as response object. Lets see the components of response.
+
+We'll modify the helper function, where we'll see the response object directly to calling function.
+
+``` python
+# Modified helper function
+def get_completion(prompt):
+    messages = [{"role": "user", "content": prompt}]
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=messages,
+        temperature=0.1, 
+    )
+    return response
+```
+
+``` python
+prompt = "Who discovered the laws of motion"
+response = get_completion(prompt)
+print(response)
+```
+
+**Output**:
+
+![](images/ch2/2_response_object.png)
+
+As, you can see above, the output of OpenAI ChatCompletion is a json object. Few keys are self explanatory, we can skip those and understand others by breaking into small parts.
+
+#### Choices
+
+ChatCompletion.create function from OpenAI returns a response object like above.. In order to understand better, we'll break it and see output step wise.
+
+``` python
+response.choices
+```
+
+**Output**:
+
+![](images/ch2/2_1_response_object.png)
+
+This command will extract the choices from response which is a list of JSON. This list has only elements with JSON format. It has three keys index, message and finish_reason.
+
+``` python
+response.choices[0]
+```
+
+![](images/ch2/2_2_response_object.png)
+
+Since, response.choices is a list with one element, this statement below 👇🏾 fetch the the first element from the list which is a json.
+
+``` python
+response.choices[0].message
+```
+
+**Output**:
+
+![](images/ch2/2_3_response_object.png)
+
+The **message** json has two elements, role and content which we generally use while bulding AI applications.
+
+Finally, we'll use this statement to fetch the response from OpenAI ChatCompletion.
+
+``` python
+response.choices[0].message["content"]
+```
+
+#### Get Usage data
+
+Many times, there are requirement from business to keep track of total token usages. We can use the same response object to fetch token.
+
+If you see the content of response, 👇🏾👇🏾, it has another key usage.
+
+![](images/ch2/2_response_object.png)
+
+We can extract usage using.
+
+``` python
+response.usage
+```
+
+``` python
+<OpenAIObject at 0x22ea8fcf950> JSON: {
+  "prompt_tokens": 13,
+  "completion_tokens": 11,
+  "total_tokens": 24
+}
+```
+
+It has three keys **prompt_tokens**, **completion_tokens**, **total_tokens.**
+
+To track the use of tokens, you can use
+
+``` python
+response.usage["total_tokens"]
+```
+
+## Summary
+
+In this chapter, we discussed the structure of helper function we created and OpenAI's ChatCompletion.
