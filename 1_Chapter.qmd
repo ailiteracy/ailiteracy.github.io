@@ -31,7 +31,7 @@ import openai
 import os
 
 # A sample value for illustration which will not work :)
-# openai.api_key  = "sk-vuZEBvfa0UUAiGmYJPkqT3vvvvvJNhaT2TGHrJA6MdLHCxud" 
+# openai.api_key  = "<put your key here>" 
 
 openai.api_key  = os.getenv('OPENAI_API_KEY')
 ```

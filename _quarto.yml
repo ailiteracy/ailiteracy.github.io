@@ -1,6 +1,6 @@
 project:
   type: book
-  output-dir: "docs/ailiteracy.github.io"
+  output-dir: "docs"
 book:
   title: "Working with OpenAI Models"
   editor:
