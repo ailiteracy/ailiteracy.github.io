@@ -1,5 +1,219 @@
 ---
-title: "Chapter 4"
+title: "3 System Message"
 ---
 
-Function calling
+In this chapter, we will know about system message.
+
+## Structure of conversation
+
+Till now we saw how we send a single message inside OpenAI ChatCompletion to get response.
+
+``` python
+messages = [{"role": "user", "content": prompt}] 
+```
+
+But in actual scenario, OpenAI ChatCompletion function use a conversation (or messages). This conversation is a list of individual objects, where each object has a role and content.
+
+Here is a sample conversation
+
+``` python
+messages = [
+  {
+    "role" : "system", 
+    "content" : "You are an expert in English who corrects any error in a sentence"
+  },
+  {
+    "role" : "user",
+    "content" : "Correct this 'I want eating apple red."
+  },
+  {
+    "role": "assistant",
+    "content": "I want to eat a red apple."
+  }
+]
+```
+
+A message can take 3 roles
+
+1.  system
+
+2.  user
+
+3.  assistant
+
+**system** message set the behavior of assistant. IT is added at the beginning of conversation to set the tone and may be restrict model to have in a certain way. A **user** message is followed after system message, it represent the actual question to be asked by user. When we send conversation with system and user message, ChatCompletion function respond using the role **assistant**.
+
+Here is the sample example,
+
+``` python
+import openai
+import os
+
+# openai.api_key  = "api key"
+openai.api_key  = os.getenv('OPENAI_API_KEY')
+
+
+messages = [
+  {
+    "role" : "system", 
+    "content" : "You are an expert in English who corrects any error in a sentence"
+  },
+  {
+    "role" : "user",
+    "content" : "Correct this 'I want eating apple red."
+  }
+]
+
+response = openai.ChatCompletion.create(
+    model="gpt-3.5-turbo",
+    messages=messages,
+    temperature=0.1, 
+)
+
+response.choices[0].message
+```
+
+**output**
+
+``` python
+<OpenAIObject at 0x1e33f44f830> JSON: {
+  "role": "assistant",
+  "content": "I want to eat a red apple."
+}
+```
+
+We can use our standard format 👇🏾 if we want to see the content only.
+
+``` python
+response.choices[0].message["content"]
+```
+
+```         
+'I want to eat a red apple.'
+```
+
+## A sample conversation
+
+Now we'll built a simple conversation to ask question to our own document like pdf or word file. I'll use a word file which contains text extracted from high school book.
+
+The below code 👇🏾 will extract text from word document
+
+``` python
+# !pip install python-docx # library to read word document
+import docx
+
+file_path = "reference_text\\NCERT_Text.docx"
+doc = docx.Document(file_path)
+text = ""
+for paragraph in doc.paragraphs:
+    text += paragraph.text
+```
+
+We'll store our question which is based on text provided into four variables.
+
+``` python
+question1 = "Name the two temples the author visited in Kathmandu"
+question2 = "The writer says, “All this I wash down with Coca Cola.” What does ‘all this’ refer to?"
+question3 = "What does Vikram Seth compare to the quills of a porcupine?"
+question4 = "Name five kinds of flutes."
+```
+
+Now, we'll define the system prompt 👇🏾.
+
+``` python
+system_prompt = """
+You have excellent knowledge on English. When provided a text you can answer any question related to that text.
+You always response in polite and simple language.
+"""
+```
+
+Here we are giving background context to the model and also defining the tone which model has to use. Now we have to define the user message, that will go into model
+
+### Conversation 1
+
+Let's see the response of first question .
+
+```` python
+user_prompt = f"""
+Based on below text delimited by three backticks ```. Answer the question which is delimited by "###".
+```
+{text}
+```
+
+###
+{question1}
+###
+"""
+print(user_prompt)
+````
+
+Here, we are giving clear instructions, by clearly defining the delimiter. It will make things simpler for model.
+
+``` python
+conversation1 = [
+    {"role" : "system", "content" : system_prompt},
+    {"role" : "user", "content" : user_prompt}
+]
+```
+
+``` python
+response = openai.ChatCompletion.create(
+    model="gpt-3.5-turbo",
+    messages=conversation1,
+    temperature=0.1, 
+)
+response.choices[0].message["content"]
+```
+
+**Output:**
+
+```         
+The author visited two temples in Kathmandu. The first temple is called Pashupatinath and the second temple is called Baudhnath stupa.'
+```
+
+### Conversation 2
+
+Since, it is a repetitive ask, lets create a function for this task.
+
+```` python
+def get_chat_completion(text, question):
+    user_prompt = f"""
+    Based on below text delimited by three backticks ```. Answer the question which is delimited by "###".
+    ```
+{text}
+```
+    
+    ###
+    {question}
+    ###
+    """   
+    
+    conversation = [
+    {"role" : "system", "content" : system_prompt},
+    {"role" : "user", "content" : user_prompt}
+]
+    messages = [{"role": "user", "content": user_prompt}]
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=conversation,
+        temperature=0.1, 
+    )
+    return response.choices[0].message["content"]
+````
+
+``` python
+response = get_chat_completion(text, question2)
+print(response)
+```
+
+**Output:**
+
+```         
+The phrase 'all this' refers to the things that the writer indulged in, such as buying a bar of marzipan, a corn-on-the-cob, love story comics, and even a Reader's Digest.
+```
+
+In this way, we can start building a solution using OpenAI API.
+
+## Summary
+
+In the next Chapter , we'll create a chat application using Streamlit.

@@ -2,17 +2,18 @@ project:
   type: book
   output-dir: "docs"
 book:
-  title: "Working with OpenAI Models"
+  title: "Getting Started with OpenAI API: A Beginner's Guide"
   editor:
     markdown:
       wrap: 72
   author: "Animesh Devarshi"
-  date: "10/10/2023"
+  date: "11/04/2023"
   chapters:
     - index.qmd
-    - intro.qmd
     - 1_Chapter.qmd
     - 2_chapter.qmd
+    - 3_Chapter.qmd
+    - 4_Chapter.qmd
 
 bibliography: references.bib
 

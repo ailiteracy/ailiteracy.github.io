@@ -1,10 +1,12 @@
-# Chapter 2
+---
+title: "2 Structure of API function"
+---
 
 In this chapter, we will see the
 
 -   structure of helper function and
 
--   output of openai.ChatCompletion
+-   structure and output of openai.ChatCompletion
 
 ## Structure of helper function
 
@@ -74,7 +76,29 @@ print(response)
 
 **Output**:
 
-![](images/ch2/2_response_object.png)
+```         
+{   
+    "id": "chatcmpl-8FPlpp8IMyWHneFYuXZQqKkKGK461",   
+    "object": "chat.completion",   
+    "created": 1698684673,   
+    "model": "gpt-3.5-turbo-0613",   
+    "choices": [     
+      {       
+        "index": 0,       
+        "message": {         
+          "role": "assistant",
+          "content": "The laws of motion were discovered by Sir Isaac Newton."       
+          },       
+          "finish_reason": "stop"     
+      }   
+    ],   
+    "usage": {     
+      "prompt_tokens": 13,     
+      "completion_tokens": 1,     
+      "total_tokens": 24   
+    } 
+} 
+```
 
 As, you can see above, the output of OpenAI ChatCompletion is a json object. Few keys are self explanatory, we can skip those and understand others by breaking into small parts.
 
@@ -88,7 +112,16 @@ response.choices
 
 **Output**:
 
-![](images/ch2/2_1_response_object.png)
+```         
+[<OpenAIObject at 0x15932c6f950> JSON: {    
+  "index": 0,    
+  "message": {      
+    "role": "assistant",      
+    "content": "The laws of motion were discovered by Sir Isaac Newton."    
+    },    
+    "finish_reason": "stop"  
+  }]
+```
 
 This command will extract the choices from response which is a list of JSON. This list has only elements with JSON format. It has three keys index, message and finish_reason.
 
@@ -96,7 +129,16 @@ This command will extract the choices from response which is a list of JSON. Thi
 response.choices[0]
 ```
 
-![](images/ch2/2_2_response_object.png)
+```         
+<OpenAIObject at 0x22ea8fcfc50> JSON: {   
+  "index": 0,   
+  "message": {     
+    "role": "assistant",     
+    "content": "The laws of motion were discovered by Sir Isaac Newton."   
+  },   
+  "finish_reason": "stop" 
+}
+```
 
 Since, response.choices is a list with one element, this statement below 👇🏾 fetch the the first element from the list which is a json.
 
@@ -106,7 +148,12 @@ response.choices[0].message
 
 **Output**:
 
-![](images/ch2/2_3_response_object.png)
+```         
+<OpenAIObject at 0x15932c6f9b0> JSON: {   
+  "role": "assistant",   
+  "content": "The laws of motion were discovered by Sir Isaac Newton." 
+}
+```
 
 The **message** json has two elements, role and content which we generally use while bulding AI applications.
 
@@ -116,13 +163,41 @@ Finally, we'll use this statement to fetch the response from OpenAI ChatCompleti
 response.choices[0].message["content"]
 ```
 
+**Output**:
+
+```         
+'The laws of motion were discovered by Sir Isaac Newton.'
+```
+
 #### Get Usage data
 
 Many times, there are requirement from business to keep track of total token usages. We can use the same response object to fetch token.
 
 If you see the content of response, 👇🏾👇🏾, it has another key usage.
 
-![](images/ch2/2_response_object.png)
+``` python
+{   
+    "id": "chatcmpl-8FPlpp8IMyWHneFYuXZQqKkKGK461",   
+    "object": "chat.completion",   
+    "created": 1698684673,   
+    "model": "gpt-3.5-turbo-0613",   
+    "choices": [     
+      {       
+        "index": 0,       
+        "message": {         
+          "role": "assistant",
+          "content": "The laws of motion were discovered by Sir Isaac Newton."       
+          },       
+          "finish_reason": "stop"     
+      }   
+    ],   
+    "usage": {     
+      "prompt_tokens": 13,     
+      "completion_tokens": 1,     
+      "total_tokens": 24   
+    } 
+} 
+```
 
 We can extract usage using.
 
@@ -144,6 +219,10 @@ To track the use of tokens, you can use
 
 ``` python
 response.usage["total_tokens"]
+```
+
+``` python
+24
 ```
 
 ## Summary

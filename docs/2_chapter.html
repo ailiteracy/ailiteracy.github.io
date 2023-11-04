@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Working with OpenAI Models - Chapter 2</title>
+<title>Getting Started with OpenAI API: A Beginner’s Guide - 2 Structure of API function</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,6 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./3_Chapter.html" rel="next">
 <link href="./1_Chapter.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -106,7 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2_chapter.html"><span class="chapter-title">Chapter 2</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2_chapter.html"><span class="chapter-title">2 Structure of API function</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -121,7 +122,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Working with OpenAI Models</a> 
+      <a href="./">Getting Started with OpenAI API: A Beginner’s Guide</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -139,17 +140,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introduction</span></a>
+  <a href="./1_Chapter.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1 Getting started</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1_Chapter.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 1</span></a>
+  <a href="./2_chapter.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">2 Structure of API function</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_chapter.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Chapter 2</span></a>
+  <a href="./3_Chapter.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3 System Message</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./4_Chapter.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4 Chat with your own data</span></a>
   </div>
 </li>
     </ul>
@@ -173,7 +179,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Chapter 2</span></h1>
+<h1 class="title"><span class="chapter-title">2 Structure of API function</span></h1>
 </div>
 
 
@@ -191,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In this chapter, we will see the</p>
 <ul>
 <li><p>structure of helper function and</p></li>
-<li><p>output of openai.ChatCompletion</p></li>
+<li><p>structure and output of openai.ChatCompletion</p></li>
 </ul>
 <section id="structure-of-helper-function" class="level2">
 <h2 class="anchored" data-anchor-id="structure-of-helper-function">Structure of helper function</h2>
@@ -203,23 +209,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="cell-output-display">
 
-<div id="kepftlxbhh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#kepftlxbhh table {
+<div id="lkkzitjjgs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#lkkzitjjgs table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#kepftlxbhh thead, #kepftlxbhh tbody, #kepftlxbhh tfoot, #kepftlxbhh tr, #kepftlxbhh td, #kepftlxbhh th {
+#lkkzitjjgs thead, #lkkzitjjgs tbody, #lkkzitjjgs tfoot, #lkkzitjjgs tr, #lkkzitjjgs td, #lkkzitjjgs th {
   border-style: none;
 }
 
-#kepftlxbhh p {
+#lkkzitjjgs p {
   margin: 0;
   padding: 0;
 }
 
-#kepftlxbhh .gt_table {
+#lkkzitjjgs .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -245,12 +251,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#kepftlxbhh .gt_caption {
+#lkkzitjjgs .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#kepftlxbhh .gt_title {
+#lkkzitjjgs .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -262,7 +268,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#kepftlxbhh .gt_subtitle {
+#lkkzitjjgs .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -274,7 +280,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#kepftlxbhh .gt_heading {
+#lkkzitjjgs .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -286,13 +292,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#kepftlxbhh .gt_bottom_border {
+#lkkzitjjgs .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#kepftlxbhh .gt_col_headings {
+#lkkzitjjgs .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -307,7 +313,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#kepftlxbhh .gt_col_heading {
+#lkkzitjjgs .gt_col_heading {
   color: #FFFFFF;
   background-color: #0000FF;
   font-size: 100%;
@@ -327,7 +333,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#kepftlxbhh .gt_column_spanner_outer {
+#lkkzitjjgs .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #0000FF;
   font-size: 100%;
@@ -339,15 +345,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#kepftlxbhh .gt_column_spanner_outer:first-child {
+#lkkzitjjgs .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#kepftlxbhh .gt_column_spanner_outer:last-child {
+#lkkzitjjgs .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#kepftlxbhh .gt_column_spanner {
+#lkkzitjjgs .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -359,11 +365,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#kepftlxbhh .gt_spanner_row {
+#lkkzitjjgs .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#kepftlxbhh .gt_group_heading {
+#lkkzitjjgs .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -389,7 +395,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#kepftlxbhh .gt_empty_group_heading {
+#lkkzitjjgs .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -404,15 +410,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#kepftlxbhh .gt_from_md > :first-child {
+#lkkzitjjgs .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#kepftlxbhh .gt_from_md > :last-child {
+#lkkzitjjgs .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#kepftlxbhh .gt_row {
+#lkkzitjjgs .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -431,7 +437,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#kepftlxbhh .gt_stub {
+#lkkzitjjgs .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -444,7 +450,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#kepftlxbhh .gt_stub_row_group {
+#lkkzitjjgs .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -458,15 +464,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#kepftlxbhh .gt_row_group_first td {
+#lkkzitjjgs .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#kepftlxbhh .gt_row_group_first th {
+#lkkzitjjgs .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#kepftlxbhh .gt_summary_row {
+#lkkzitjjgs .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -476,16 +482,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#kepftlxbhh .gt_first_summary_row {
+#lkkzitjjgs .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#kepftlxbhh .gt_first_summary_row.thick {
+#lkkzitjjgs .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#kepftlxbhh .gt_last_summary_row {
+#lkkzitjjgs .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -495,7 +501,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#kepftlxbhh .gt_grand_summary_row {
+#lkkzitjjgs .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -505,7 +511,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#kepftlxbhh .gt_first_grand_summary_row {
+#lkkzitjjgs .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -515,7 +521,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#kepftlxbhh .gt_last_grand_summary_row_top {
+#lkkzitjjgs .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -525,11 +531,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#kepftlxbhh .gt_striped {
+#lkkzitjjgs .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#kepftlxbhh .gt_table_body {
+#lkkzitjjgs .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -538,7 +544,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#kepftlxbhh .gt_footnotes {
+#lkkzitjjgs .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -552,7 +558,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#kepftlxbhh .gt_footnote {
+#lkkzitjjgs .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -561,7 +567,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#kepftlxbhh .gt_sourcenotes {
+#lkkzitjjgs .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -575,7 +581,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#kepftlxbhh .gt_sourcenote {
+#lkkzitjjgs .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -583,63 +589,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#kepftlxbhh .gt_left {
+#lkkzitjjgs .gt_left {
   text-align: left;
 }
 
-#kepftlxbhh .gt_center {
+#lkkzitjjgs .gt_center {
   text-align: center;
 }
 
-#kepftlxbhh .gt_right {
+#lkkzitjjgs .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#kepftlxbhh .gt_font_normal {
+#lkkzitjjgs .gt_font_normal {
   font-weight: normal;
 }
 
-#kepftlxbhh .gt_font_bold {
+#lkkzitjjgs .gt_font_bold {
   font-weight: bold;
 }
 
-#kepftlxbhh .gt_font_italic {
+#lkkzitjjgs .gt_font_italic {
   font-style: italic;
 }
 
-#kepftlxbhh .gt_super {
+#lkkzitjjgs .gt_super {
   font-size: 65%;
 }
 
-#kepftlxbhh .gt_footnote_marks {
+#lkkzitjjgs .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#kepftlxbhh .gt_asterisk {
+#lkkzitjjgs .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#kepftlxbhh .gt_indent_1 {
+#lkkzitjjgs .gt_indent_1 {
   text-indent: 5px;
 }
 
-#kepftlxbhh .gt_indent_2 {
+#lkkzitjjgs .gt_indent_2 {
   text-indent: 10px;
 }
 
-#kepftlxbhh .gt_indent_3 {
+#lkkzitjjgs .gt_indent_3 {
   text-indent: 15px;
 }
 
-#kepftlxbhh .gt_indent_4 {
+#lkkzitjjgs .gt_indent_4 {
   text-indent: 20px;
 }
 
-#kepftlxbhh .gt_indent_5 {
+#lkkzitjjgs .gt_indent_5 {
   text-indent: 25px;
 }
 </style>
@@ -692,40 +698,100 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> get_completion(prompt)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Output</strong>:</p>
-<p><img src="images/ch2/2_response_object.png" class="img-fluid"></p>
+<pre><code>{   
+    "id": "chatcmpl-8FPlpp8IMyWHneFYuXZQqKkKGK461",   
+    "object": "chat.completion",   
+    "created": 1698684673,   
+    "model": "gpt-3.5-turbo-0613",   
+    "choices": [     
+      {       
+        "index": 0,       
+        "message": {         
+          "role": "assistant",
+          "content": "The laws of motion were discovered by Sir Isaac Newton."       
+          },       
+          "finish_reason": "stop"     
+      }   
+    ],   
+    "usage": {     
+      "prompt_tokens": 13,     
+      "completion_tokens": 1,     
+      "total_tokens": 24   
+    } 
+} </code></pre>
 <p>As, you can see above, the output of OpenAI ChatCompletion is a json object. Few keys are self explanatory, we can skip those and understand others by breaking into small parts.</p>
 <section id="choices" class="level4">
 <h4 class="anchored" data-anchor-id="choices">Choices</h4>
 <p>ChatCompletion.create function from OpenAI returns a response object like above.. In order to understand better, we’ll break it and see output step wise.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>response.choices</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>response.choices</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Output</strong>:</p>
-<p><img src="images/ch2/2_1_response_object.png" class="img-fluid"></p>
+<pre><code>[&lt;OpenAIObject at 0x15932c6f950&gt; JSON: {    
+  "index": 0,    
+  "message": {      
+    "role": "assistant",      
+    "content": "The laws of motion were discovered by Sir Isaac Newton."    
+    },    
+    "finish_reason": "stop"  
+  }]</code></pre>
 <p>This command will extract the choices from response which is a list of JSON. This list has only elements with JSON format. It has three keys index, message and finish_reason.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>response.choices[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><img src="images/ch2/2_2_response_object.png" class="img-fluid"></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>response.choices[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>&lt;OpenAIObject at 0x22ea8fcfc50&gt; JSON: {   
+  "index": 0,   
+  "message": {     
+    "role": "assistant",     
+    "content": "The laws of motion were discovered by Sir Isaac Newton."   
+  },   
+  "finish_reason": "stop" 
+}</code></pre>
 <p>Since, response.choices is a list with one element, this statement below 👇🏾 fetch the the first element from the list which is a json.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>response.choices[<span class="dv">0</span>].message</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>response.choices[<span class="dv">0</span>].message</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Output</strong>:</p>
-<p><img src="images/ch2/2_3_response_object.png" class="img-fluid"></p>
+<pre><code>&lt;OpenAIObject at 0x15932c6f9b0&gt; JSON: {   
+  "role": "assistant",   
+  "content": "The laws of motion were discovered by Sir Isaac Newton." 
+}</code></pre>
 <p>The <strong>message</strong> json has two elements, role and content which we generally use while bulding AI applications.</p>
 <p>Finally, we’ll use this statement to fetch the response from OpenAI ChatCompletion.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>response.choices[<span class="dv">0</span>].message[<span class="st">"content"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>response.choices[<span class="dv">0</span>].message[<span class="st">"content"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Output</strong>:</p>
+<pre><code>'The laws of motion were discovered by Sir Isaac Newton.'</code></pre>
 </section>
 <section id="get-usage-data" class="level4">
 <h4 class="anchored" data-anchor-id="get-usage-data">Get Usage data</h4>
 <p>Many times, there are requirement from business to keep track of total token usages. We can use the same response object to fetch token.</p>
 <p>If you see the content of response, 👇🏾👇🏾, it has another key usage.</p>
-<p><img src="images/ch2/2_response_object.png" class="img-fluid"></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>{   </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"id"</span>: <span class="st">"chatcmpl-8FPlpp8IMyWHneFYuXZQqKkKGK461"</span>,   </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"object"</span>: <span class="st">"chat.completion"</span>,   </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"created"</span>: <span class="dv">1698684673</span>,   </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"model"</span>: <span class="st">"gpt-3.5-turbo-0613"</span>,   </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"choices"</span>: [     </span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>      {       </span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"index"</span>: <span class="dv">0</span>,       </span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"message"</span>: {         </span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>          <span class="st">"role"</span>: <span class="st">"assistant"</span>,</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>          <span class="st">"content"</span>: <span class="st">"The laws of motion were discovered by Sir Isaac Newton."</span>       </span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>          },       </span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>          <span class="st">"finish_reason"</span>: <span class="st">"stop"</span>     </span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>      }   </span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    ],   </span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"usage"</span>: {     </span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>      <span class="st">"prompt_tokens"</span>: <span class="dv">13</span>,     </span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>      <span class="st">"completion_tokens"</span>: <span class="dv">1</span>,     </span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>      <span class="st">"total_tokens"</span>: <span class="dv">24</span>   </span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>    } </span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>} </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>We can extract usage using.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>response.usage</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>OpenAIObject at <span class="bn">0x22ea8fcf950</span><span class="op">&gt;</span> JSON: {</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"prompt_tokens"</span>: <span class="dv">13</span>,</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"completion_tokens"</span>: <span class="dv">11</span>,</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"total_tokens"</span>: <span class="dv">24</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>response.usage</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>OpenAIObject at <span class="bn">0x22ea8fcf950</span><span class="op">&gt;</span> JSON: {</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"prompt_tokens"</span>: <span class="dv">13</span>,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"completion_tokens"</span>: <span class="dv">11</span>,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"total_tokens"</span>: <span class="dv">24</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>It has three keys <strong>prompt_tokens</strong>, <strong>completion_tokens</strong>, <strong>total_tokens.</strong></p>
 <p>To track the use of tokens, you can use</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>response.usage[<span class="st">"total_tokens"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>response.usage[<span class="st">"total_tokens"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dv">24</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="summary" class="level2">
@@ -972,10 +1038,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./1_Chapter.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Chapter 1</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">1 Getting started</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./3_Chapter.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-title">3 System Message</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

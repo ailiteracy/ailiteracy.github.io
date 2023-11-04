@@ -1,5 +1,130 @@
 ---
-title: "Chapter 5"
+title: "4 Chat with your own data"
+subtitle: "How to chat with your own PDF or word"
 ---
 
-Few Use cases
+In this chapter, we will create a solution using Streamlit which will Chat with the pdf document in your directory.
+
+The first step will be to create a directory name chatwithpdf with below structure.
+
+```         
+├── chatwithpdf
+│   ├── main.py
+│   ├── Who_Healthy diet.pdf
+```
+
+main.py will store the code to run the streamlit application. Here is the complete code required to run the appication. We'll break into small chunks to understand.
+
+```` python
+import openai
+import streamlit as st
+import os
+from PyPDF2 import PdfReader
+
+st.title("Chatwith your data")
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
+
+reader = PdfReader("Who_Healthy diet.pdf")
+corpus = ""
+for page in reader.pages:
+    corpus = corpus + "\n" + page.extract_text()
+
+system_prompt = f"""
+You have excellent knowledge on English. who can answer any question related to below text delimited by ```.
+You always response in polite and simple language.
+
+```
+{corpus}
+```
+"""
+
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+    st.session_state.messages.append({"role": "system", "content": system_prompt})
+
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        if (message["role"] != "system"):
+            st.markdown(message["content"])
+
+
+
+if prompt := st.chat_input("How can I help you?"):
+    
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    with st.chat_message("user"):
+        st.markdown(prompt)
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=st.session_state.messages,
+            temperature=0.1, 
+        ) 
+        response_message = response.choices[0].message["content"]
+        response_role = response.choices[0].message["role"]
+        
+
+    with st.chat_message("assistant"):
+        st.markdown(response_message)
+    st.session_state.messages.append({"role": "assistant", "content": response_message})
+````
+
+After we have loaded necessary libraries and openai key. The first step will be to load the content of pdf. A common powerful library for reading pdf is PyPDF2.
+
+``` python
+reader = PdfReader("Who_Healthy diet.pdf")
+text = ""
+for page in reader.pages:
+    text = text + "\n" + page.extract_text()
+```
+
+The above statements, will iterate through all pages of pdf and load the content into a string variable text. We will use this text variable into system message.
+
+```` python
+system_prompt = f"""
+You have excellent knowledge on English. who can answer any question related to below text delimited by ```.
+You always response in polite and simple language.
+
+```
+{text}
+```
+"""
+````
+
+Here we define, our system message.
+
+Please note, we are sending our text into system prompt, and not user prompt. FInally we have the streamlit specific code which we use to create chat application.
+
+``` python
+
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+    st.session_state.messages.append({"role": "system", "content": system_prompt})
+
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        if (message["role"] != "system"):
+            st.markdown(message["content"])
+
+
+
+if prompt := st.chat_input("How can I help you?"):
+    
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    with st.chat_message("user"):
+        st.markdown(prompt)
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=st.session_state.messages,
+            temperature=0.1, 
+        ) 
+        response_message = response.choices[0].message["content"]
+        response_role = response.choices[0].message["role"]
+        
+
+    with st.chat_message("assistant"):
+        st.markdown(response_message)
+    st.session_state.messages.append({"role": "assistant", "content": response_message})
+```
+
+In this way, you can create a simple running chat application which can run on your won data.

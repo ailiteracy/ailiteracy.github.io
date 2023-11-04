@@ -1,5 +1,29 @@
 # Preface {.unnumbered}
 
-This is index page
+Welcome to "Getting Started with OpenAI API: A Beginner's Guide," an ebook designed especially for beginners who wants to start build AI application using the powerful APIs of OpenAI. This ebook is intended to provide a clear and comprehensive guide for beginners who want to start using the OpenAI models with Python.
 
-### About
+Here's a quick overview of the chapters you'll find in this ebook:
+
+#### Chapter 1: Using OpenAI models in Python
+
+We will start by installing the necessary Python libraries and creating an OpenAI API key. Then, we will show you how to perform some basic tasks with OpenAI models, such as text summarization and output in a given format.
+
+#### Chapter 2: Structure and output of OpenAI's ChatCompletion
+
+We will explain how the openai.ChatCompletion model works and what kind of outputs it can generate. We will also show you how to use the model parameters and options to customize the outputs.
+
+#### Chapter 3: Structure of conversation or messages in ChatCompletion
+
+We will discuss how to structure the conversation or messages that are used as inputs for the openai.ChatCompletion model. We will also provide some tips and best practices for creating engaging and coherent conversations.
+
+#### Chapter 4: Create a solution using Streamlit which will chat with the PDF document in your directory
+
+We will demonstrate how to use Streamlit, a Python library for creating interactive web applications, to build a solution that will allow you to chat with any PDF document in your directory using the openai.ChatCompletion model.
+
+This ebook is suitable for anyone who has a basic knowledge of Python and wants to learn how to use the OpenAI models effectively. This ebook does not require any prior experience with the OpenAI models or the OpenAI API. The ebook provides many examples and code snippets that can be easily adapted and modified for different purposes and scenarios.
+
+By reading this ebook, you will gain a solid understanding of the OpenAI models and how to use them with Python. You will also learn how to avoid common mistakes and pitfalls.
+
+I hope that you will find this ebook useful and informative, and that it will inspire you to explore and experiment with the OpenAI models and the API. I also hope that you will share your feedback and suggestions with me, so that I can improve and update this ebook in the future.
+
+Thank you for choosing this ebook and happy learning!

@@ -1,16 +1,14 @@
-# Chapter 1
+---
+title: "1 Getting started"
+---
 
-In this chapter, we will introduce you to the basics of using OpenAI models in Python.
+In this chapter, we will introduce you to the basics of using OpenAI models.
 
 We will start by installing the necessary Python libraries and creating an OpenAI API key. Then, we will show you how to perform some basic tasks with OpenAI models, such as:
 
 -   Text summarization
 
 -   Output in a given format
-
--   Translation
-
--   Code generation
 
 We will also provide some tips for best practices when using OpenAI models.
 

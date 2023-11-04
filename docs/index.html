@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Animesh Devarshi">
-<meta name="dcterms.date" content="2023-10-10">
+<meta name="dcterms.date" content="2023-11-04">
 
-<title>Working with OpenAI Models</title>
+<title>Getting Started with OpenAI API: A Beginner’s Guide</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +32,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
+<link href="./1_Chapter.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -89,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Working with OpenAI Models</a> 
+      <a href="./">Getting Started with OpenAI API: A Beginner’s Guide</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -107,17 +107,22 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introduction</span></a>
+  <a href="./1_Chapter.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">1 Getting started</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1_Chapter.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 1</span></a>
+  <a href="./2_chapter.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">2 Structure of API function</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_chapter.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Chapter 2</span></a>
+  <a href="./3_Chapter.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">3 System Message</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./4_Chapter.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">4 Chat with your own data</span></a>
   </div>
 </li>
     </ul>
@@ -130,10 +135,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a>
-  <ul class="collapse">
-  <li><a href="#about" id="toc-about" class="nav-link" data-scroll-target="#about">About</a></li>
-  </ul></li>
+  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
   </ul>
 </nav>
     </div>
@@ -142,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Working with OpenAI Models</h1>
+<h1 class="title">Getting Started with OpenAI API: A Beginner’s Guide</h1>
 </div>
 
 
@@ -159,7 +161,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 10, 2023</p>
+      <p class="date">November 4, 2023</p>
     </div>
   </div>
   
@@ -171,9 +173,27 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="preface" class="level1 unnumbered">
 <h1 class="unnumbered">Preface</h1>
-<p>This is index page</p>
-<section id="about" class="level3">
-<h3 class="anchored" data-anchor-id="about">About</h3>
+<p>Welcome to “Getting Started with OpenAI API: A Beginner’s Guide,” an ebook designed especially for beginners who wants to start build AI application using the powerful APIs of OpenAI. This ebook is intended to provide a clear and comprehensive guide for beginners who want to start using the OpenAI models with Python.</p>
+<p>Here’s a quick overview of the chapters you’ll find in this ebook:</p>
+<section id="chapter-1-using-openai-models-in-python" class="level4">
+<h4 class="anchored" data-anchor-id="chapter-1-using-openai-models-in-python">Chapter 1: Using OpenAI models in Python</h4>
+<p>We will start by installing the necessary Python libraries and creating an OpenAI API key. Then, we will show you how to perform some basic tasks with OpenAI models, such as text summarization and output in a given format.</p>
+</section>
+<section id="chapter-2-structure-and-output-of-openais-chatcompletion" class="level4">
+<h4 class="anchored" data-anchor-id="chapter-2-structure-and-output-of-openais-chatcompletion">Chapter 2: Structure and output of OpenAI’s ChatCompletion</h4>
+<p>We will explain how the openai.ChatCompletion model works and what kind of outputs it can generate. We will also show you how to use the model parameters and options to customize the outputs.</p>
+</section>
+<section id="chapter-3-structure-of-conversation-or-messages-in-chatcompletion" class="level4">
+<h4 class="anchored" data-anchor-id="chapter-3-structure-of-conversation-or-messages-in-chatcompletion">Chapter 3: Structure of conversation or messages in ChatCompletion</h4>
+<p>We will discuss how to structure the conversation or messages that are used as inputs for the openai.ChatCompletion model. We will also provide some tips and best practices for creating engaging and coherent conversations.</p>
+</section>
+<section id="chapter-4-create-a-solution-using-streamlit-which-will-chat-with-the-pdf-document-in-your-directory" class="level4">
+<h4 class="anchored" data-anchor-id="chapter-4-create-a-solution-using-streamlit-which-will-chat-with-the-pdf-document-in-your-directory">Chapter 4: Create a solution using Streamlit which will chat with the PDF document in your directory</h4>
+<p>We will demonstrate how to use Streamlit, a Python library for creating interactive web applications, to build a solution that will allow you to chat with any PDF document in your directory using the openai.ChatCompletion model.</p>
+<p>This ebook is suitable for anyone who has a basic knowledge of Python and wants to learn how to use the OpenAI models effectively. This ebook does not require any prior experience with the OpenAI models or the OpenAI API. The ebook provides many examples and code snippets that can be easily adapted and modified for different purposes and scenarios.</p>
+<p>By reading this ebook, you will gain a solid understanding of the OpenAI models and how to use them with Python. You will also learn how to avoid common mistakes and pitfalls.</p>
+<p>I hope that you will find this ebook useful and informative, and that it will inspire you to explore and experiment with the OpenAI models and the API. I also hope that you will share your feedback and suggestions with me, so that I can improve and update this ebook in the future.</p>
+<p>Thank you for choosing this ebook and happy learning!</p>
 
 
 </section>
@@ -417,8 +437,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./1_Chapter.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-title">1 Getting started</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
