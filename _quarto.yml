@@ -14,6 +14,7 @@ book:
     - 2_chapter.qmd
     - 3_Chapter.qmd
     - 4_Chapter.qmd
+  google-analytics: "G-LCZB82G6XF"
 
 bibliography: references.bib
 
