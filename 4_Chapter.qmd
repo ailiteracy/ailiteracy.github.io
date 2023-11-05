@@ -127,4 +127,10 @@ if prompt := st.chat_input("How can I help you?"):
     st.session_state.messages.append({"role": "assistant", "content": response_message})
 ```
 
-In this way, you can create a simple running chat application which can run on your won data.
+In order to run this application, you have to go the folder containing main.py and execute
+
+``` python
+streamlit run main.py .
+```
+
+In this way, you can create a simple running chat application which can run on your own data.

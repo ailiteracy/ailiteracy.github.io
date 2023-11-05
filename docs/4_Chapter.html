@@ -297,7 +297,9 @@ gtag('config', 'G-LCZB82G6XF', { 'anonymize_ip': true});
 <span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> st.chat_message(<span class="st">"assistant"</span>):</span>
 <span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>        st.markdown(response_message)</span>
 <span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    st.session_state.messages.append({<span class="st">"role"</span>: <span class="st">"assistant"</span>, <span class="st">"content"</span>: response_message})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>In this way, you can create a simple running chat application which can run on your won data.</p>
+<p>In order to run this application, you have to go the folder containing main.py and execute</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>streamlit run main.py .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In this way, you can create a simple running chat application which can run on your own data.</p>
 
 
 
